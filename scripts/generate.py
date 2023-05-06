@@ -1,12 +1,17 @@
 from json import loads, dumps
 from pathlib import Path
-from typing import TypedDict
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing import TypedDict
 
 
-class Design(TypedDict):
-    name: str
-    description: str
-    url: str
+    class Design(TypedDict):
+        name: str
+        description: str
+        url: str
+else:
+    Design = dict
 
 
 def generate() -> None:
