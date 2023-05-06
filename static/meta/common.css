@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+
+:root {
+  --col-bg: #e0e0e0;
+  --col-bg-secondary: #d1d1d1;
+  --col-bg-secondary-hover: #c7c7c7;
+  --col-bg-tertiary: #ebebeb;
+
+  --col-text: #000;
+  --col-text-secondary: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --col-bg: #1e1e1e;
+    --col-bg-secondary: #272727;
+    --col-bg-secondary-hover: #2f2f2f;
+    --col-bg-tertiary: #171717;
+
+    --col-text: #f6f6f6;
+    --col-text-secondary: #b8b8b8;
+  }
+}
+
+:root,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  background-color: var(--col-bg);
+  color: var(--col-text);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.responsive-pad {
+  padding: 0 1%;
+}
+
+@media only screen and (min-width: 768px) {
+  .responsive-pad {
+    padding: 0 20%;
+  }
+}
+
+.link {
+  color: var(--col-text);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+input:focus {
+  outline: none;
+}

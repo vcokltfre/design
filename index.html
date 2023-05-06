@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="/static/meta/vcokltfre.png"
+      type="image/png"
+      sizes="16x16"
+    />
+
+    <meta property="og:title" content="vco's Designs" />
+    <meta
+      property="og:description"
+      content="This site contains designs and prototypes made for learning and testing."
+    />
+    <meta
+      property="og:image"
+      content="https://design.vco.sh/static/meta/vcokltfre.png"
+    />
+    <meta property="og:url" content="https://design.vco.sh" />
+    <meta name="theme-color" content="#87ceeb" />
+
+    <link rel="stylesheet" href="/static/meta/common.css" />
+
+    <title>vco's Designs</title>
+  </head>
+  <style>
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 3rem;
+      background-color: var(--col-bg-secondary);
+    }
+
+    .search {
+      width: 100%;
+      height: 2rem;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: var(--col-bg-secondary);
+      color: var(--col-text-secondary);
+      padding: 0.5rem;
+      box-sizing: border-box;
+      margin-top: 1rem;
+    }
+
+    .design {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--col-bg-secondary);
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+      box-sizing: border-box;
+    }
+
+    .design:hover {
+      cursor: pointer;
+      background-color: var(--col-bg-secondary-hover);
+    }
+
+    .design p {
+      color: var(--col-text-secondary);
+    }
+  </style>
+  <body>
+    <nav class="responsive-pad">
+      <h1>Designs</h1>
+      <div class="grow"></div>
+      <a href="https://github.com/vcokltfre/design" class="link">GitHub</a>
+    </nav>
+    <main class="responsive-pad">
+      <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="Search for designs..."
+      />
+      <div class="designs" id="designs"></div>
+    </main>
+  </body>
+  <script type="module">
+    const designs = await (
+      await fetch("/static/meta/design-manifest.json")
+    ).json();
+
+    const designsEl = document.getElementById("designs");
+
+    function renderDesgins(search) {
+      designsEl.innerHTML = "";
+
+      for (const design of designs) {
+        if (
+          search &&
+          !design.name.toLowerCase().includes(search.toLowerCase())
+        ) {
+          continue;
+        }
+
+        const designEl = document.createElement("div");
+        designEl.classList.add("design");
+
+        designEl.onclick = () => {
+          window.location.href = design.url;
+        };
+
+        const designNameEl = document.createElement("h2");
+        designNameEl.innerText = design.name;
+
+        const designDescEl = document.createElement("p");
+        designDescEl.innerText = design.description;
+
+        designEl.appendChild(designNameEl);
+        designEl.appendChild(designDescEl);
+
+        designsEl.appendChild(designEl);
+      }
+
+      if (designsEl.innerHTML === "") {
+        const noDesignsEl = document.createElement("p");
+        noDesignsEl.innerText = "No designs found.";
+        noDesignsEl.classList.add("design");
+        designsEl.appendChild(noDesignsEl);
+      }
+    }
+
+    const searchEl = document.getElementById("search");
+    searchEl.value = "";
+
+    searchEl.oninput = (e) => {
+      renderDesgins(e.target.value);
+    };
+    searchEl.onkeyup = (e) => {
+      renderDesgins(e.target.value);
+    };
+
+    renderDesgins();
+  </script>
+</html>
