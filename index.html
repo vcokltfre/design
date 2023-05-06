@@ -66,6 +66,15 @@
     .design p {
       color: var(--col-text-secondary);
     }
+
+    .no-designs {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--col-bg-secondary);
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+      box-sizing: border-box;
+    }
   </style>
   <body>
     <nav class="responsive-pad">
@@ -123,7 +132,7 @@
       if (designsEl.innerHTML === "") {
         const noDesignsEl = document.createElement("p");
         noDesignsEl.innerText = "No designs found.";
-        noDesignsEl.classList.add("design");
+        noDesignsEl.classList.add("no-designs");
         designsEl.appendChild(noDesignsEl);
       }
     }
