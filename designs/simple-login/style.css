@@ -1,0 +1,110 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: var(--col-bg-secondary);
+  border-radius: 0.75rem;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 320px) {
+  .login-box {
+    width: 90%;
+    min-width: initial;
+    max-width: initial;
+  }
+}
+
+.switcher-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.switcher-button {
+  background-color: var(--col-bg-secondary);
+  border: none;
+  color: var(--col-text);
+  padding: 0.5rem 1rem;
+  width: 50%;
+  border-bottom: 2px solid var(--col-bg-secondary-hover);
+}
+
+.switcher-button:hover {
+  background-color: var(--col-bg-secondary-hover);
+  cursor: pointer;
+}
+
+.switcher-button:active {
+  background-color: var(--col-bg-secondary-active);
+}
+
+.switcher-left {
+  border-top-left-radius: 0.75rem;
+}
+
+.switcher-right {
+  border-top-right-radius: 0.75rem;
+}
+
+.switcher-current {
+  background-color: var(--col-bg-secondary-hover);
+  border-bottom: 2px solid var(--col-primary);
+}
+
+.details form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.details input {
+  background-color: var(--col-bg-tertiary);
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--col-text);
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.details .final {
+  margin-bottom: 0;
+}
+
+.details button {
+  background-color: var(--col-primary);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.details button:hover {
+  background-color: var(--col-primary-hover);
+  cursor: pointer;
+}
+
+.details button:active {
+  background-color: var(--col-primary-active);
+}
+
+.hidden {
+  display: none;
+}
+
+.sep {
+  width: 100%;
+  height: 1px;
+  background-color: var(--col-bg-secondary-hover);
+  margin: 1rem 0;
+}

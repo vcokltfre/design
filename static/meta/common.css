@@ -4,10 +4,19 @@
   --col-bg: #e0e0e0;
   --col-bg-secondary: #d1d1d1;
   --col-bg-secondary-hover: #c7c7c7;
+  --col-bg-secondary-active: #d4d4d4;
   --col-bg-tertiary: #ebebeb;
 
   --col-text: #000;
   --col-text-secondary: #666;
+
+  --col-primary: #3c6ae9;
+  --col-primary-hover: #325ed6;
+  --col-primary-active: #3c6ae9;
+}
+
+.text-on-primary {
+  color: #f6f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +24,7 @@
     --col-bg: #1e1e1e;
     --col-bg-secondary: #272727;
     --col-bg-secondary-hover: #2f2f2f;
+    --col-bg-secondary-active: #2a2a2a;
     --col-bg-tertiary: #171717;
 
     --col-text: #f6f6f6;

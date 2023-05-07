@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="/static/meta/vcokltfre.png"
+      type="image/png"
+      sizes="16x16"
+    />
+
+    <meta property="og:title" content="Simple Login - vco's Designs" />
+    <meta
+      property="og:description"
+      content="A simple login page with no added bells and whistles."
+    />
+    <meta
+      property="og:image"
+      content="https://design.vco.sh/static/meta/vcokltfre.png"
+    />
+    <meta property="og:url" content="https://design.vco.sh" />
+    <meta name="theme-color" content="#87ceeb" />
+
+    <link rel="stylesheet" href="/static/meta/common.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Simple Login - vco's Designs</title>
+  </head>
+  <body>
+    <div class="login-box">
+      <div class="switcher">
+        <button
+          class="switcher-button switcher-left switcher-current"
+          id="login-button"
+          onclick="setLogin()"
+        >
+          Log In</button
+        ><button
+          class="switcher-button switcher-right"
+          id="signup-button"
+          onclick="setSignup()"
+        >
+          Sign Up
+        </button>
+      </div>
+      <div class="details">
+        <div id="login-form" class="login">
+          <form action="">
+            <input type="text" placeholder="Username" />
+            <input class="final" type="password" placeholder="Password" />
+            <div class="sep"></div>
+            <button class="text-on-primary" type="submit">Log In</button>
+          </form>
+        </div>
+        <div id="signup-form" class="signup hidden">
+          <form action="">
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <input
+              class="final"
+              type="password"
+              placeholder="Confirm Password"
+            />
+            <div class="sep"></div>
+            <button class="text-on-primary" type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const login = document.getElementById("login-form");
+    const signup = document.getElementById("signup-form");
+
+    const loginButton = document.getElementById("login-button");
+    const signupButton = document.getElementById("signup-button");
+
+    function setLogin() {
+      login.classList.remove("hidden");
+      signup.classList.add("hidden");
+
+      loginButton.classList.add("switcher-current");
+      signupButton.classList.remove("switcher-current");
+    }
+
+    function setSignup() {
+      login.classList.add("hidden");
+      signup.classList.remove("hidden");
+
+      loginButton.classList.remove("switcher-current");
+      signupButton.classList.add("switcher-current");
+    }
+  </script>
+</html>
